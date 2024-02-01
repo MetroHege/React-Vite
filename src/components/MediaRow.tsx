@@ -2,7 +2,7 @@ import {MediaItem} from '../types/DBTypes';
 
 const MediaRow = (props: {
   item: MediaItem;
-  setSelectedItem: (item: MediaItem | undefined) => undefined;
+  setSelectedItem: (item: MediaItem | undefined) => void;
 }) => {
   const {item, setSelectedItem} = props;
 
