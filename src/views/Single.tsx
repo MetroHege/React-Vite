@@ -1,10 +1,10 @@
 import {NavigateFunction, useLocation, useNavigate} from 'react-router-dom';
-import {MediaItem} from '../types/DBTypes';
+import {MediaItem, MediaItemWithOwner} from '../types/DBTypes';
 
 const Single = () => {
   const {state} = useLocation();
   const navigate: NavigateFunction = useNavigate();
-  const item: MediaItem = state;
+  const item: MediaItemWithOwner = state;
   return (
     <>
       <h3>{item.title}</h3>
@@ -14,7 +14,10 @@ const Single = () => {
         <img src={item.filename} alt={item.title} />
       )}
       <p>{item.description}</p>
-      <p>{new Date(item.created_at).toLocaleString('fi-FI')}</p>
+      <p>
+        Uploaded at: {new Date(item.created_at).toLocaleString('fi-FI')}, by{' '}
+        {item.username}
+      </p>
       <p>{item.filesize}</p>
       <p>{item.media_type}</p>
       <button
