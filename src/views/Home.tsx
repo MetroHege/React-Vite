@@ -1,45 +1,13 @@
-import {MediaItem, MediaItemWithOwner, User} from '../types/DBTypes';
+import {MediaItemWithOwner} from '../types/DBTypes';
 import MediaRow from '../components/MediaRow';
-import {useEffect, useState} from 'react';
-import {fetchData} from '../lib/functions';
+import {useMedia} from '../hooks/apiHooks';
 
 const Home = () => {
-  const [mediaArray, setMediaArray] = useState<MediaItem[]>([]);
-  //console.log(mediaArray);
-
-  const getMedia = async () => {
-    try {
-      const mediaItems = await fetchData<MediaItem[]>(
-        import.meta.env.VITE_MEDIA_API + '/media',
-      );
-      // GET usernames (file owner) for all media files
-      const itemsWithOwner: MediaItemWithOwner[] = await Promise.all(
-        mediaItems.map(async (item) => {
-          const owner = await fetchData<User>(
-            import.meta.env.VITE_AUTH_API + '/users/' + item.user_id,
-          );
-          const itemWithOwner: MediaItemWithOwner = {
-            ...item,
-            username: owner.username,
-          };
-          return itemWithOwner;
-        }),
-      );
-
-      setMediaArray(itemsWithOwner);
-      console.log('mediaArray', itemsWithOwner);
-    } catch (error) {
-      console.error('getMedia failed', error);
-    }
-  };
-
-  useEffect(() => {
-    getMedia();
-  }, []);
+  const mediaArray: MediaItemWithOwner[] = useMedia();
 
   return (
     <>
-      <h2>My Media items</h2>
+      <h2>My Media</h2>
       <table>
         <thead>
           <tr>
