@@ -4,7 +4,7 @@ const Layout = () => {
   return (
     <>
       <header>
-        <h1>My App</h1>
+        <h1>My app</h1>
         <nav>
           <ul>
             <li>
@@ -16,6 +16,12 @@ const Layout = () => {
             <li>
               <Link to="/upload">Upload</Link>
             </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/logout">Logout</Link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -23,7 +29,7 @@ const Layout = () => {
         <Outlet />
       </main>
       <footer>
-        <p>Copyright 2024</p>
+        <p>Copyright 2024 - NN</p>
       </footer>
     </>
   );
