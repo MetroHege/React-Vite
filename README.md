@@ -1,6 +1,8 @@
 # Hybrid apps - React example
 
-Open [this link in browser](https://users.metropolia.fi/~henriole/hybridisovellukset/React-week3/) to see the app in action.
+Open [this link in browser](https://users.metropolia.fi/~henriole/hybridisovellukset/React-week3/) to see the app in action (week 3 assignment).
+
+Open [this link in browser](https://users.metropolia.fi/~henriole/hybridisovellukset/React-week3/) to see the app in action (week 4 assignment).
 
 ---
 
