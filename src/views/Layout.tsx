@@ -1,4 +1,4 @@
-import {Link, Outlet} from 'react-router-dom';
+import {Link, Outlet, useLocation} from 'react-router-dom';
 import {useUserContext} from '../hooks/ContextHooks';
 
 const Layout = () => {
@@ -8,39 +8,107 @@ const Layout = () => {
     handleAutoLogin();
   }
 
+  const location = useLocation();
+
   return (
     <>
-      <header>
-        <h1>My app</h1>
+      <header className="wave-bg flex items-center justify-between p-2 text-white">
+        <div className="flex items-center">
+          {' '}
+          <img
+            src="./src/img/logo-test-enhanced.png"
+            alt="MediaWave"
+            className="h-10 w-10"
+          />
+          <h1 className="pacifico-regular bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-2xl font-bold italic text-transparent">
+            MediaWave
+          </h1>
+        </div>
         <nav>
-          <ul className="flex justify-end bg-slate-950">
-            <li>
-              <Link className='block text-slate-200 text-center p-4 hover:bg-slate-900' to="/">Home</Link>
+          <ul className="flex space-x-4">
+            <li
+              className={
+                location.pathname === '/'
+                  ? 'rounded bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold'
+                  : ''
+              }
+            >
+              <Link
+                className="block p-2 text-center text-slate-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 hover:bg-clip-text hover:font-bold hover:text-transparent"
+                to="/"
+              >
+                Home
+              </Link>
             </li>
             {user ? (
-            <>
-            <li>
-              <Link className='block text-slate-200 text-center p-4 hover:bg-slate-900' to="/profile">Profile</Link>
-            </li>
-            <li>
-              <Link className='block text-slate-200 text-center p-4 hover:bg-slate-900' to="/upload">Upload</Link>
-            </li>
-            <li>
-              <Link className='block text-slate-200 text-center p-4 hover:bg-slate-900' to="/logout">Logout</Link>
-            </li>
-            </>
-           ) : (
-            <li>
-              <Link className='block text-slate-200 text-center p-4 hover:bg-slate-900' to="/login">Login</Link>
-            </li>
-          )}
+              <>
+                <li
+                  className={
+                    location.pathname === '/profile'
+                      ? 'rounded bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold'
+                      : ''
+                  }
+                >
+                  <Link
+                    className="block p-2 text-center text-slate-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 hover:bg-clip-text hover:font-bold hover:text-transparent"
+                    to="/profile"
+                  >
+                    Profile
+                  </Link>
+                </li>
+                <li
+                  className={
+                    location.pathname === '/upload'
+                      ? 'rounded bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold'
+                      : ''
+                  }
+                >
+                  <Link
+                    className="block p-2 text-center text-slate-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 hover:bg-clip-text hover:font-bold hover:text-transparent"
+                    to="/upload"
+                  >
+                    Upload
+                  </Link>
+                </li>
+                <li
+                  className={
+                    location.pathname === '/logout'
+                      ? 'rounded bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold'
+                      : ''
+                  }
+                >
+                  <Link
+                    className="block p-2 text-center text-slate-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 hover:bg-clip-text hover:font-bold hover:text-transparent"
+                    to="/logout"
+                  >
+                    Logout
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li
+                className={
+                  location.pathname === '/login'
+                    ? 'rounded bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold'
+                    : ''
+                }
+              >
+                <Link
+                  className="block p-2 text-center text-slate-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 hover:bg-clip-text hover:font-bold hover:text-transparent"
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
+
       <main>
         <Outlet />
       </main>
-      <footer>
+      <footer className="footer">
         <p>Copyright 2024 - NN</p>
       </footer>
     </>

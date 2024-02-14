@@ -42,8 +42,8 @@ const RegisterForm = () => {
   console.log(usernameAvailable, emailAvailable);
 
   return (
-    <>
-      <h3 className='text-3xl'>Register</h3>
+    <div className='shadow-lg p-8 rounded'>
+      <h3 className='text-3xl mb-8 text-center font-bold'>REGISTER</h3>
       <form onSubmit={handleSubmit} className='flex flex-col text-center'>
         <div className='flex w-4/5'>
           <label className='w-1/3 p-6 text-end' htmlFor="username">Username</label>
@@ -58,9 +58,9 @@ const RegisterForm = () => {
           />
         </div>
         {!usernameAvailable && (
-        <div className='flex w-4/5 justify-end pr-4'>
-          <p className='text-rose-500'>Username not available!</p>
-        </div>
+          <div className='flex w-4/5 justify-end pr-4'>
+            <p className='text-rose-500'>Username not available!</p>
+          </div>
         )}
         <div className='flex w-4/5'>
           <label className='w-1/3 p-6 text-end' htmlFor="password">Password</label>
@@ -86,15 +86,15 @@ const RegisterForm = () => {
           />
         </div>
         {!emailAvailable && (
-        <div className='flex w-4/5 justify-end pr-4'>
-          <p className='text-rose-500'>Email not available!</p>
-        </div>
+          <div className='flex w-4/5 justify-end pr-4'>
+            <p className='text-rose-500'>Email not available!</p>
+          </div>
         )}
         <div className='flex w-4/5 justify-center'>
-        <button className='m-3 w-1/3 rounded bg-slate-500 p2 hover:bg-slate-900' type="submit">Register</button>
+        <button className='m-3 w-1/3 rounded bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 hover:font-bold text-black' type="submit">Register</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

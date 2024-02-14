@@ -42,52 +42,69 @@ const Upload = () => {
 
   return (
     <>
-      <h1>Upload</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            name="title"
-            type="text"
-            id="title"
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <textarea
-            name="description"
-            rows={5}
-            id="description"
-            onChange={handleInputChange}
-          ></textarea>
-        </div>
-        <div>
-          <label htmlFor="file">File</label>
-          <input
-            name="file"
-            type="file"
-            id="file"
-            accept="image/*, video/*"
-            onChange={handleFileChange}
-          />
-        </div>
-        <img
-          src={
-            file
-              ? URL.createObjectURL(file)
-              : 'https://via.placeholder.com/200?text=Choose+image'
-          }
-          alt="preview"
-          width="200"
-        />
-        <button
-          type="submit"
-          disabled={file && inputs.title.length > 3 ? false : true}
-        >
-          Upload
-        </button>
-      </form>
+      <div className="rounded p-8 shadow-lg">
+        <h3 className="mb-8 text-center text-3xl font-bold">Upload</h3>
+        <form onSubmit={handleSubmit} className="flex flex-col text-center">
+          <div className="mx-auto mb-4 w-4/5">
+            <label htmlFor="title" className="block text-justify">
+              Title
+            </label>
+            <input
+              className="w-full rounded border border-slate-500 p-2 text-slate-950"
+              name="title"
+              type="text"
+              id="title"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="mx-auto mb-4 w-4/5">
+            <label htmlFor="description" className="block text-justify">
+              Description
+            </label>
+            <textarea
+              className="w-full rounded border border-slate-500 p-2 text-slate-950"
+              name="description"
+              rows={5}
+              id="description"
+              onChange={handleInputChange}
+            ></textarea>
+          </div>
+          <div className="mx-auto mb-4 w-4/5">
+            <label htmlFor="file" className="block text-justify">
+              File
+            </label>
+            <input
+              className="w-full rounded border border-slate-500 p-2 text-slate-950"
+              name="file"
+              type="file"
+              id="file"
+              accept="image/*, video/*"
+              onChange={handleFileChange}
+            />
+          </div>
+          <div className="mx-auto mb-4 w-4/5">
+            <img
+              src={
+                file
+                  ? URL.createObjectURL(file)
+                  : 'https://via.placeholder.com/200?text=Choose+image'
+              }
+              alt="preview"
+              width="200"
+              className="mx-auto"
+            />
+          </div>
+          <div className="mx-auto mb-4 w-4/5">
+            <button
+              className="w-full rounded bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 text-black hover:font-bold"
+              type="submit"
+              disabled={file && inputs.title.length > 3 ? false : true}
+            >
+              Upload
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
