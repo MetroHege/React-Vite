@@ -94,16 +94,18 @@ const Likes = ({item}: {item: MediaItemWithOwner}) => {
     }
   };
 
+  console.log(likeState);
+
   return (
-    <>
-      Like count: {likeState.count}
+    <div className="mb-4 mt-4 flex flex-row">
+      <div className="font-bold">Likes: {likeState.count}</div>
       <button
-        className="bg-slate-700 p-2 hover:bg-slate-950"
+        className="ml-4 rounded-md bg-gradient-to-r from-slate-500 to-slate-800 p-2"
         onClick={handleLike}
       >
         {likeState.userLike ? 'Unlike' : 'Like'}
       </button>
-    </>
+    </div>
   );
 };
 

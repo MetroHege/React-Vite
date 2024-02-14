@@ -9,8 +9,8 @@ const Single = () => {
   const item: MediaItemWithOwner = state;
 
   return (
-    <>
-      <h3>{item.title}</h3>
+    <div className=" m-6">
+      <h3 className="text-3xl font-bold">~ {item.title} ~</h3>
       {item.media_type.includes('video') ? (
         <video controls src={item.filename}></video>
       ) : (
@@ -20,18 +20,21 @@ const Single = () => {
       <p>{item.description}</p>
       <p>
         Uploaded at: {new Date(item.created_at).toLocaleString('fi-FI')}, by:{' '}
-        {item.username}{' '}
+        {item.username}
       </p>
       <p>{item.filesize}</p>
       <p>{item.media_type}</p>
-      <button
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        go back
-      </button>
-    </>
+      <div>
+        <button
+          className="mt-4 rounded-md bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 text-black"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          🢀 Go back
+        </button>
+      </div>
+    </div>
   );
 };
 

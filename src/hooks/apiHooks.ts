@@ -195,7 +195,7 @@ const useLike = () => {
   const getCountByMediaId = async (media_id: number) => {
     // Send a GET request to /likes/:media_id to get the number of likes.
     return await fetchData<{count: number}>(
-      import.meta.env.VITE_MEDIA_API + '/likes/' + media_id,
+      import.meta.env.VITE_MEDIA_API + '/likes/count/' + media_id,
     );
   };
 
