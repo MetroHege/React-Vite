@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import {MediaItemWithOwner} from '../types/DBTypes';
 import {useUserContext} from '../hooks/ContextHooks';
 
-const MediaRow = (props: {item: MediaItemWithOwner}) => {
+const AdminMediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
   const {user} = useUserContext();
   console.log('user', user);
@@ -28,29 +28,25 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
             View
           </Link>
         </div>
-        {user && user.user_id === item.user_id && (
-          <>
-            <div className="mb-2">
-              <button
-                className="block rounded-md bg-gradient-to-r from-blue-600 to-blue-900 p-2"
-                onClick={() => console.log('modify', item)}
-              >
-                Modify
-              </button>
-            </div>
-            <div>
-              <button
-                className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
-                onClick={() => console.log('delete', item)}
-              >
-                Delete
-              </button>
-            </div>
-          </>
-        )}
+        <div className="mb-2">
+          <button
+            className="block rounded-md bg-gradient-to-r from-blue-600 to-blue-900 p-2"
+            onClick={() => console.log('modify', item)}
+          >
+            Modify
+          </button>
+        </div>
+        <div>
+          <button
+            className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
+            onClick={() => console.log('delete', item)}
+          >
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   );
 };
 
-export default MediaRow;
+export default AdminMediaRow;

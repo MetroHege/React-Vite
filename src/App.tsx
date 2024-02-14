@@ -8,6 +8,7 @@ import Login from './views/Login';
 import Logout from './views/Logout';
 import {UserProvider} from './contexts/UserContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import Admin from './views/Admin';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/single" element={<Single />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/admin" element={<Admin />} />
           </Route>
         </Routes>
       </UserProvider>
