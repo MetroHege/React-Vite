@@ -18,29 +18,35 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
       <td>{item.filesize}</td>
       <td>{item.media_type}</td>
       <td>{item.username}</td>
-      <td className="flex flex-col pb-4 pt-4">
-        <Link
-          className="rounded-md bg-slate-700 p-2 hover:bg-slate-900"
-          to="/single"
-          state={item}
-        >
-          View
-        </Link>
+      <td className="p-4">
+        <div className="mb-2">
+          <Link
+            className="block flex items-center justify-center rounded-md bg-gradient-to-r from-slate-500 to-slate-800 p-2"
+            to="/single"
+            state={item}
+          >
+            View
+          </Link>
+        </div>
         {user &&
           (user.user_id === item.user_id || user.level_name === 'Admin') && (
             <>
-              <button
-                className="rounded-md bg-blue-700 p-2 hover:bg-slate-900"
-                onClick={() => console.log('modify', item)}
-              >
-                Modify
-              </button>
-              <button
-                className="rounded-md bg-rose-700 p-2 hover:bg-slate-900"
-                onClick={() => console.log('delete', item)}
-              >
-                Delete
-              </button>
+              <div className="mb-2">
+                <button
+                  className="block rounded-md bg-gradient-to-r from-blue-600 to-blue-900 p-2"
+                  onClick={() => console.log('modify', item)}
+                >
+                  Modify
+                </button>
+              </div>
+              <div>
+                <button
+                  className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
+                  onClick={() => console.log('delete', item)}
+                >
+                  Delete
+                </button>
+              </div>
             </>
           )}
       </td>
