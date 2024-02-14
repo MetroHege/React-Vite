@@ -13,7 +13,7 @@ const Layout = () => {
   return (
     <>
       <header className="wave-bg flex items-center justify-between p-2 text-white">
-        <div className="flex items-center">
+        <Link className="flex items-center" to="/">
           {' '}
           <img
             src="./src/img/logo-test-enhanced.png"
@@ -23,7 +23,7 @@ const Layout = () => {
           <h1 className="pacifico-regular bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-2xl font-bold italic text-transparent">
             MediaWave
           </h1>
-        </div>
+        </Link>
         <nav>
           <ul className="flex space-x-4">
             <li
