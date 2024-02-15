@@ -1,6 +1,7 @@
 import {NavigateFunction, useLocation, useNavigate} from 'react-router-dom';
 import {MediaItemWithOwner} from '../types/DBTypes';
 import Likes from '../components/Likes';
+import Comments from '../components/Comments';
 
 const Single = () => {
   const {state} = useLocation();
@@ -10,7 +11,7 @@ const Single = () => {
 
   return (
     <div className=" m-6">
-      <h3 className="text-3xl font-bold">~ {item.title} ~</h3>
+      <h3 className="text-3xl font-bold">{item.title}</h3>
       {item.media_type.includes('video') ? (
         <video controls src={item.filename}></video>
       ) : (
@@ -22,6 +23,7 @@ const Single = () => {
         Uploaded at: {new Date(item.created_at).toLocaleString('fi-FI')}, by:{' '}
         {item.username}
       </p>
+      <Comments item={item} />
       <p>{item.filesize}</p>
       <p>{item.media_type}</p>
       <div>
@@ -33,6 +35,7 @@ const Single = () => {
         >
           🢀 Go back
         </button>
+        {/* <Comments /> */}
       </div>
     </div>
   );
