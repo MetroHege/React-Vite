@@ -105,7 +105,7 @@ const Layout = () => {
         </nav>
       </header>
 
-      <main>
+      <main className="">
         <Outlet />
       </main>
       <footer className="footer">

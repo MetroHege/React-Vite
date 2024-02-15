@@ -57,7 +57,7 @@ const Comments = ({item}: {item: MediaItemWithOwner}) => {
           <ul>
             {comments.map((comment) => (
               <li key={comment.comment_id}>
-                <div className="rounded-md border border-slate-200 bg-slate-800 p-3 text-slate-100">
+                <div className="w-2/3 rounded-md border border-slate-200 bg-slate-800 p-3 text-slate-100">
                   <span className="font-bold text-slate-200">
                     {comment.username}
                   </span>
