@@ -57,14 +57,14 @@ const Home = () => {
       </div>
 
       <table className="w-full border-collapse">
-        <thead className="text-white">
+        <thead className="text-xl text-white">
           <tr>
             <th className="px-4 py-2">Thumbnail</th>
             <th className="px-4 py-2">Title</th>
             <th className="px-4 py-2">Description</th>
             <th className="px-4 py-2">Created</th>
-            <th className="px-4 py-2">Size</th>
-            <th className="px-4 py-2">Type</th>
+            {/* <th className="px-4 py-2">Size</th>
+            <th className="px-4 py-2">Type</th> */}
             <th className="px-4 py-2">Owner</th>
           </tr>
         </thead>

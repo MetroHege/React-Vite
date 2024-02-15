@@ -50,7 +50,7 @@ const Upload = () => {
               Title
             </label>
             <input
-              className="w-full rounded border border-slate-500 p-2 text-slate-950"
+              className="w-full rounded border bg-slate-800 p-2 text-slate-200"
               name="title"
               type="text"
               id="title"
@@ -62,7 +62,7 @@ const Upload = () => {
               Description
             </label>
             <textarea
-              className="w-full rounded border border-slate-500 p-2 text-slate-950"
+              className="w-full rounded border bg-slate-800 p-2 text-slate-200"
               name="description"
               rows={5}
               id="description"
@@ -74,7 +74,7 @@ const Upload = () => {
               File
             </label>
             <input
-              className="w-full rounded border border-slate-500 p-2 text-slate-950"
+              className="w-full rounded border border-slate-200 bg-slate-800 p-2 text-slate-200"
               name="file"
               type="file"
               id="file"
@@ -94,7 +94,7 @@ const Upload = () => {
               className="mx-auto"
             />
           </div>
-          <div className="mx-auto mb-4 w-4/5">
+          <div className="mx-auto mb-4 flex w-1/3 items-start">
             <button
               className="w-full rounded bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 text-black hover:font-bold"
               type="submit"
