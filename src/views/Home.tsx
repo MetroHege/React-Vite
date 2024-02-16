@@ -1,5 +1,5 @@
 import MediaRow from '../components/MediaRow';
-import {useMedia} from '../hooks/apiHooks';
+import {useMedia} from '../hooks/GraphQLHooks';
 
 const Home = () => {
   const {mediaArray} = useMedia();
