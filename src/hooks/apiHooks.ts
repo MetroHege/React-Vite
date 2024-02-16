@@ -82,7 +82,22 @@ const useMedia = () => {
     );
   };
 
-  return {mediaArray, postMedia};
+  // deleteMedia function
+
+  const deleteMedia = async (media_id: number, token: string) => {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    return await fetchData<MessageResponse>(
+      import.meta.env.VITE_MEDIA_API + '/media/' + media_id,
+      options,
+    );
+  };
+
+  return {mediaArray, postMedia, deleteMedia};
 };
 
 const useUser = () => {
