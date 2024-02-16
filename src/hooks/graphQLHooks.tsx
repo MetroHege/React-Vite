@@ -15,9 +15,11 @@ import {
   UploadResponse,
   UserResponse,
 } from '../types/MessageTypes';
+import {useUpdateContext} from './ContextHooks';
 
 const useMedia = () => {
   const [mediaArray, setMediaArray] = useState<MediaItemWithOwner[]>([]);
+  const {update} = useUpdateContext();
 
   const getMedia = async () => {
     try {
@@ -55,7 +57,7 @@ const useMedia = () => {
 
   useEffect(() => {
     getMedia();
-  }, []);
+  }, [update]);
 
   const postMedia = (
     file: UploadResponse,
@@ -93,17 +95,23 @@ const useMedia = () => {
 
   // deleteMedia function
 
-  const deleteMedia = async (media_id: number, token: string) => {
-    const options = {
-      method: 'DELETE',
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    };
-    return await fetchData<MessageResponse>(
-      import.meta.env.VITE_MEDIA_API + '/media/' + media_id,
-      options,
-    );
+  const deleteMedia = async (media_id: string, token: string) => {
+    const query = `
+    mutation DeleteMediaItem($mediaId: ID!) {
+      deleteMediaItem(media_id: $mediaId) {
+        message
+      }
+    }
+    `;
+
+    const variables = {mediaId: media_id};
+
+    const deleteResult = await makeQuery<
+      GraphQLResponse<{deleteMediaItem: MessageResponse}>,
+      {mediaId: string}
+    >(query, variables, token);
+
+    return deleteResult.data.deleteMediaItem;
   };
 
   return {mediaArray, postMedia, deleteMedia};

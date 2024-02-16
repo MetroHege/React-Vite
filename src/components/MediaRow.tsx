@@ -1,11 +1,27 @@
 import {Link} from 'react-router-dom';
 import {MediaItemWithOwner} from '../types/DBTypes';
-import {useUserContext} from '../hooks/ContextHooks';
+import {useUpdateContext, useUserContext} from '../hooks/ContextHooks';
+import {useMedia} from '../hooks/GraphQLHooks';
 
 const MediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
   const {user} = useUserContext();
-  console.log('user', user);
+  const {deleteMedia} = useMedia();
+  const {update, setUpdate} = useUpdateContext();
+
+  const deleteHandler = () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('No token found');
+      }
+      const result = deleteMedia(item.media_id, token);
+      console.log('delete result', result);
+      setUpdate(!update);
+    } catch (error) {
+      console.error('deleteHandler failed', error);
+    }
+  };
 
   return (
     <tr className="media-row shadow-md">
@@ -42,7 +58,7 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
               <div>
                 <button
                   className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
-                  onClick={() => console.log('delete', item)}
+                  onClick={deleteHandler}
                 >
                   Delete
                 </button>
