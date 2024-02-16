@@ -10,13 +10,17 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
   const {update, setUpdate} = useUpdateContext();
 
   const deleteHandler = () => {
+    const cnf = confirm('Are you sure you want to delete this media?');
+    if (!cnf) {
+      return;
+    }
     try {
       const token = localStorage.getItem('token');
       if (!token) {
         throw new Error('No token found');
       }
       const result = deleteMedia(item.media_id, token);
-      console.log('delete result', result);
+      alert(result.message);
       setUpdate(!update);
     } catch (error) {
       console.error('deleteHandler failed', error);
