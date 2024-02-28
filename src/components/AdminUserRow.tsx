@@ -1,5 +1,3 @@
-// TODO: Display all users in a table and add a possibility to delete or modify users if needed.
-
 type User = {
   user_id: number;
   username: string;
@@ -18,14 +16,7 @@ const AdminUserRow = (props: {user: User}) => {
       <td>{user.email}</td>
       <td>{String(user.created_at)}</td>
       <td className="p-4">
-        <div className="mb-2">
-          <button
-            className="block rounded-md bg-gradient-to-r from-blue-600 to-blue-900 p-2"
-            onClick={() => console.log('modify', user)}
-          >
-            Modify
-          </button>
-        </div>
+        <div className="mb-2"></div>
         <div>
           <button
             className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"

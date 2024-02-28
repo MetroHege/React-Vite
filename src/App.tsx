@@ -8,7 +8,7 @@ import Login from './views/Login';
 import Logout from './views/Logout';
 import {UserProvider} from './contexts/UserContext';
 import ProtectedRoute from './components/ProtectedRoute';
-import Example from './components/Example';
+import Admin from './views/Admin';
 
 const App = () => {
   return (
@@ -36,7 +36,7 @@ const App = () => {
             <Route path="/single" element={<Single />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/example" element={<Example />} />
+            <Route path="/admin" element={<Admin.Admin />} />
           </Route>
         </Routes>
       </UserProvider>

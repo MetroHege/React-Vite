@@ -28,27 +28,26 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
             View
           </Link>
         </div>
-        {user &&
-          (user.user_id === item.user_id || user.level_name === 'Admin') && (
-            <>
-              <div className="mb-2">
-                <button
-                  className="block rounded-md bg-gradient-to-r from-blue-600 to-blue-900 p-2"
-                  onClick={() => console.log('modify', item)}
-                >
-                  Modify
-                </button>
-              </div>
-              <div>
-                <button
-                  className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
-                  onClick={() => console.log('delete', item)}
-                >
-                  Delete
-                </button>
-              </div>
-            </>
-          )}
+        {user && user.user_id === item.user_id && (
+          <>
+            <div className="mb-2">
+              <button
+                className="block rounded-md bg-gradient-to-r from-blue-600 to-blue-900 p-2"
+                onClick={() => console.log('modify', item)}
+              >
+                Modify
+              </button>
+            </div>
+            <div>
+              <button
+                className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
+                onClick={() => console.log('delete', item)}
+              >
+                Delete
+              </button>
+            </div>
+          </>
+        )}
       </td>
     </tr>
   );

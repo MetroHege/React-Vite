@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="media-wave-info rounded p-8 shadow-lg">
+      {/* <div className="media-wave-info rounded p-8 shadow-lg">
         <h2 className="mb-4 text-center text-3xl font-bold">
           Welcome to MediaWave
         </h2>
@@ -54,7 +54,7 @@ const Home = () => {
           Join us on MediaWave and embark on a journey of creativity, discovery,
           and connection!
         </p>
-      </div>
+      </div> */}
 
       <table className="w-full border-collapse">
         <thead className="text-xl text-white">
