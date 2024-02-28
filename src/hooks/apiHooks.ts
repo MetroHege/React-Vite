@@ -48,7 +48,7 @@ const useMedia = () => {
 
   useEffect(() => {
     getMedia();
-  }, []);
+  }, [update]);
 
   const postMedia = (
     file: UploadResponse,
