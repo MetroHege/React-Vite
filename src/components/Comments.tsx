@@ -20,7 +20,7 @@ const Comments = ({item}: {item: MediaItemWithOwner}) => {
       return;
     }
     try {
-      await postComment(inputs.comment_text, item.media_id, token);
+      await postComment(inputs.comment_text, Number(item.media_id), token);
       await getComments();
 
       if (formRef.current) {
@@ -38,7 +38,7 @@ const Comments = ({item}: {item: MediaItemWithOwner}) => {
 
   const getComments = async () => {
     try {
-      const comments = await getCommentsByMediaId(item.media_id);
+      const comments = await getCommentsByMediaId(Number(item.media_id)); // Convert item.media_id to a number
       setComments(comments);
     } catch (error) {
       console.error('getComments failed', error);

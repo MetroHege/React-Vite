@@ -4,7 +4,7 @@ import {UserWithNoPassword} from '../types/DBTypes';
 // import {useAuthentication, useUser} from '../hooks/Hooks';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {AuthContextType, Credentials} from '../types/LocalTypes';
-import {useAuthentication, useUser} from '../hooks/GraphQLHooks';
+import {useAuthentication, useUser} from '../hooks/graphQLHooks';
 
 const UserContext = createContext<AuthContextType | null>(null);
 
